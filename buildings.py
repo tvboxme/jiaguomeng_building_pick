@@ -181,7 +181,7 @@ class BuildingMatrix(object):
 
     def put(self, building, plan=None):
         plan = plan or copy.deepcopy(self.AREA)
-        if len(set.union(plan.values())) >= 9:
+        if len(set.union(*plan.values())) >= 9:
             raise MatrixFull()
         target = plan[building.building_type]
         if len(target) >= 3:
