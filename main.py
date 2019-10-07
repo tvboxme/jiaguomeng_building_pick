@@ -143,7 +143,8 @@ class ExplosionMixin(object):
         for bd in plan_buildings:
             active_buffers = [
                 buffer for buffer in bd.buffed_by
-                if buffer.buffer_from in plan_buildings
+                if buffer.buffer_from in plan_buildings and
+                buffer.fit_income(bd)
             ]
             bd.result = (
                 D(1) + sum(buf.coefficient for buf in active_buffers)
