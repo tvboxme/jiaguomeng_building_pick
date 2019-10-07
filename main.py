@@ -133,7 +133,6 @@ class ExplosionMixin(object):
             results.put((-1 * prod[0], prod[1], plan))
         first_good = results.get()
         second_good = results.get()
-        assert results.empty()
         print('The First Good Plan')
         self.print_plan(*first_good)
         print('The Second Good Plan')
