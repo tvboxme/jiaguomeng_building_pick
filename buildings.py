@@ -83,8 +83,10 @@ class Buffer(object):
         btype = self.buffer_type
         if btype in [Bc.IND, Bc.COM, Bc.RES]:
             return btype == building.building_type
-        if btype in [Bc.ONL, Bc.OFL]:
-            return btype == Bc.ONL and online is True
+        if btype == Bc.ONL:
+            return online is True
+        if btype == Bc.OFL:
+            return online is False
         if btype == Bc.SGL:
             return self.bind_name == building.name
         if btype == Bc.ALL:
